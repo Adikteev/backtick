@@ -1,4 +1,4 @@
-(defproject ctdean/backtick "0.8.3"
+(defproject adikteev/backtick "0.8.4"
   :description "Background job processing for Clojure using Postgres"
   :dependencies [[clj-time "0.12.0"]
                  [clj-cron-parse "0.1.4"]
