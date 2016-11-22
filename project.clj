@@ -1,4 +1,4 @@
-(defproject adikteev/backtick "0.8.4"
+(defproject adikteev/backtick "0.8.6"
   :description "Background job processing for Clojure using Postgres"
   :dependencies [[clj-time "0.12.0"]
                  [clj-cron-parse "0.1.4"]
@@ -19,4 +19,5 @@
              :test {:jvm-opts ["-Dconf.env=test"]}
              :production {:jvm-opts ["-Dconf.env=production"]}}
   :aliases {"migrate"  ["run" "-m" "backtick.db.migrate/migrate"]
-            "rollback" ["run" "-m" "backtick.db.migrate/rollback"]})
+            "rollback" ["run" "-m" "backtick.db.migrate/rollback"]}
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo" :sign-releases false}]])

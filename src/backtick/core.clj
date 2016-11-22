@@ -84,14 +84,14 @@
   ([]
    (start (:pool-size master-cf)))
   ([pool-size]
-   (engine/run pool-size)
-   (define-recurring revive-killed-jobs (:revive-check-ms master-cf) []
-    (log/info "Running revive-killed-jobs")
-    (cleaner/revive))
+    (define-recurring revive-killed-jobs (:revive-check-ms master-cf) []
+      (log/info "Running revive-killed-jobs")
+      (cleaner/revive))
 
-  (define-recurring remove-old-jobs (:remove-check-ms master-cf) []
-    (log/info "Running remove-old-jobs")
-    (cleaner/remove-old))))
+    (define-recurring remove-old-jobs (:remove-check-ms master-cf) []
+      (log/info "Running remove-old-jobs")
+      (cleaner/remove-old))
+    (engine/run pool-size)))
 
 (defn -main [& args]
   (log/info "Starting bactick")
